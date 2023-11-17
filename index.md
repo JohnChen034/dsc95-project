@@ -34,6 +34,8 @@ MD is the type of missingness that is not missing at random. It is missing by de
 > example from lecture:
 > ![img.png](img.png)
 
+Example on Pandas Tutors:
+![img_1.png](img_1.png)
 
 note: I think MD is very easy to understand with class materials, I can add more if anyone think more is needed.
 
@@ -69,6 +71,10 @@ how you can differentiate a NMAR senario from a MAR senario. In short, we are lo
 > Data is MAR if the chance that a value is missing depends on other columns, but not the actual missing value itself.
 
 *Especially in project 3, we are more focused on whether you can correctly argue for NMAR and MAR.*
+*and in addition to that here is my justification of NMAR on project 3 and can use to guide students, I can change it to a 
+another dataset that isnt used now*
+![img_4.png](img_4.png)
+
 
 There isnt a big different in NMAR and MAR, they differentiate in the existence of dependencies on the
 missingness in the dataframe. In MAR, we can use other columns to determine the missingness, but in NMAR, we can't. It
@@ -108,6 +114,8 @@ Aside from the ones we learned in class, there can be:
 
 [working on it]
 
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
 ## Missing completely at random (MCAR)
 
 [working on it]
