@@ -12,16 +12,15 @@ a good explantion on them, but if you want to have a more intuitive understandin
 It is important to understand this concept for project 3 and tests. I will mainly be focusing on NMAR since
 (in my interpretation) it is the most difficult one to understand.
 
-## Types of missingness
-
-- Missing by design (MD).
-- Not missing at random (NMAR). Also called "non-ignorable" (NI).
-- Missing at random (MAR).
-- Missing completely at random (MCAR).
+- [Missing by design (MD).](#missing-by-design-md)
+- [Not missing at random (NMAR)](#not-missing-at-random-nmar)
+- [Missing at random (MAR).](#missing-at-random-mar)
+- [Missing completely at random (MCAR).](#missing-completely-at-random-mcar)
 
 ## Missing by design (MD)
 
-MD is the type of missingness that is not missing at random. It is missing by design.
+This type of missingness is often the easiest to understand. It is solely based on the design of the data collection
+process, where the designers intentionally decided to not collect data in that column.
 
 
 > notes from lecture (I will use this to represent notes from lecture)):
@@ -75,7 +74,29 @@ how you can differentiate a NMAR senario from a MAR senario. In short, we are lo
 another dataset that isnt used now*
 ![img_4.png](img_4.png)
 
+<details>
+<summary><b>not wordy version</b></summary>
+In summary, the difference between NMAR (Not Missing At Random) and MAR (Missing At Random) relates to whether missing
+data in a dataset can be inferred from other available data. In MAR, missing values can be predicted using other columns
+in the dataset. In contrast, NMAR refers to situations where missingness cannot be determined from the data present.
 
+The distinction between NMAR and MAR can vary depending on the dataset's variables. For instance, in a survey, the
+presence of certain columns (like job title in an employment survey) can change missingness from NMAR to MAR, as these
+columns help predict missing values.
+
+However, determining missingness can be complex, especially in situations like voluntary surveys where participant
+bias (like satisfaction or dissatisfaction among employees) can influence responses. To address these complexities,
+various imputation methods are used, such as Model-Based Imputation, which uses statistical models to predict missing
+values, and Hot Deck Imputation, where missing values are filled using data from similar respondents.
+</details>
+
+
+
+
+
+
+<details>
+<summary>  <b>wordy version</b></summary>
 There isnt a big different in NMAR and MAR, they differentiate in the existence of dependencies on the
 missingness in the dataframe. In MAR, we can use other columns to determine the missingness, but in NMAR, we can't. It
 is important
@@ -110,14 +131,70 @@ Aside from the ones we learned in class, there can be:
 - Hot Deck Imputation: This method involves filling in missing values with observed responses from similar respondents.
   The 'similar' respondents are typically identified based on other variables in the dataset.
 
-## Missing at random (MAR)
+</details>
 
-[working on it]
+## Missing at random (MAR) and Missing completely at random (MCAR)
 
+### Missing at random (MAR)
+
+In general, MAR and MCAR are covered comprehensively in lecture, and it is not that hard to understand. I will just
+briefly go over them.
+
+Missing at Random (MAR) occurs when the probability of data being missing is related to the observed data, but not the
+missing data itself. In MAR, the cause of the missing data can be explained by variables for which we have information.
+
+You can treat this sort of like the opposite of NMAR: In MAR, we can use other columns to determine the missingness, but
+in
+NMAR, we can't. In the sense of dsc80, if look through the columns and can find at least 1 column that can help you
+determine
+the missingness, then it is MAR. If you can't, then it is NMAR.
+
+- **Example:** In a survey, if people with higher income levels tend to skip the income question more often, and if we
+  know the respondents' job titles, the missingness of income data is MAR.
+
+In the class, we have learned with examples that explain circumstances where the missingness is MAR. I think they are
+pretty good examples and are enough to understand MAR.
+
+### Missing completely at random (MCAR)
+
+Missing Completely at Random (MCAR) means the missingness of data is completely independent of both observed and
+unobserved data. In MCAR, the missing data points are a random subset of the data.
+
+In real life, it is nearly impossible to have MCAR. You know, relationships between data are everywhere, it is just
+whether you know it or not. However, it is a good assumption to make when we are trying to
+understand the data. It is also a good assumption to make when we are trying to impute the missing data.
+
+- **Example:** If survey responses are missing due to random factors like accidental data loss or respondents randomly
+  skipping questions without any specific pattern, the missingness is MCAR.
+
+> ### Deciding between MCAR and MAR
+> - For data to be MCAR, the chance that values are missing should not depend on any other column or the values
+    themselves.
+> - **Example:** Consider a dataset of phones, in which we store the screen size and price of each phone. Some prices
+    are missing.
+
+| Phone             | Screen Size | Price |
+|-------------------|-------------|-------|
+| iPhone 14         | 6.06        | 999   |
+| Galaxy Z Fold 4   | 7.6         | NaN   |
+| OnePlus 9 Pro     | 6.7         | 799   |
+| iPhone 13 Pro Max | 6.68        | NaN   |
+
+> - If prices are MCAR, then the distribution of screen size should be the same for:
+
+- phones whose prices are missing, and
+- phones whose prices aren't missing.
+
+> - We can use a permutation test to decide between MAR and MCAR! We are asking the question, did these two samples come
+    from the same underlying distribution?
+
+
+Here is a trivial example drawn using the Pandas Tutors, you can see that young age group tend to have more missing
+values in survey response columns while old age group tend to have less missing values in survey response columns.
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
-## Missing completely at random (MCAR)
 
-[working on it]
     
+
+
     
