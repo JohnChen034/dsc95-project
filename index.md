@@ -40,10 +40,6 @@ note: I think MD is very easy to understand with class materials, I can add more
 
 ## Not missing at random (NMAR)
 
-{I dont know if this makes sense, but here is my interpretation of it. Also incorporate my thoughts about in what level
-of
-understanding we should have in dsc80}
-
 > The chance that a value is missing depends on the actual missing value!
 
 This statement was very confusing to me at first by reading the text itself. so here are examples from class.
@@ -70,9 +66,7 @@ how you can differentiate a NMAR senario from a MAR senario. In short, we are lo
 > Data is MAR if the chance that a value is missing depends on other columns, but not the actual missing value itself.
 
 *Especially in project 3, we are more focused on whether you can correctly argue for NMAR and MAR.*
-*and in addition to that here is my justification of NMAR on project 3 and can use to guide students, I can change it to a 
-another dataset that isnt used now*
-![img_4.png](img_4.png)
+
 
 <details>
 <summary><b>not wordy version</b></summary>
