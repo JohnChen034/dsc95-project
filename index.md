@@ -36,7 +36,6 @@ process, where the designers intentionally decided to not collect data in that c
 Example on Pandas Tutors:
 ![img_1.png](img_1.png)
 
-note: I think MD is very easy to understand with class materials, I can add more if anyone think more is needed.
 
 ## Not missing at random (NMAR)
 
